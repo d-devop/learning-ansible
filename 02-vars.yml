@@ -38,6 +38,7 @@
 
 - name: Acces fact
   hosts: all
+  connection: local
   tasks:
     - name: Print FACT
       ansible.builtin.debug:

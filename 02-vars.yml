@@ -43,3 +43,15 @@
     - name: Print FACT
       ansible.builtin.debug:
         msg: Hostname = {{ ansible_hostname }}
+
+- name: Demo on runtime variables
+  hosts: all
+  connection: local
+  tasks:
+    - name: Execute uptime shell command
+      ansible.builtin.shell: uptime
+      register: out
+
+    - name: Print out
+      ansible.builtin.debug:
+        msg: "{{out}}"
